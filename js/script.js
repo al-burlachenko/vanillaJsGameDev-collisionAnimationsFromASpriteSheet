@@ -49,17 +49,29 @@ class Explosion {
 }
 
 window.addEventListener("click", function (e) {
+  createAnimation(e);
+});
+window.addEventListener("mousemove", function (e) {
+  createAnimation(e);
+});
+
+function createAnimation(e) {
   let positionX = e.x - canvasPosition.left;
   let positionY = e.y - canvasPosition.top;
 
   explosions.push(new Explosion(positionX, positionY));
-});
+  console.log(explosions);
+}
 
 function animate() {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   for (let i = 0; i < explosions.length; ++i) {
     explosions[i].update();
     explosions[i].draw();
+    if (explosions[i].frame > 5) {
+      explosions.splice(i, 1);
+      i--;
+    }
   }
   requestAnimationFrame(animate);
 }
