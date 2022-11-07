@@ -15,20 +15,23 @@ const explosions = [];
 
 class Explosion {
   constructor(x, y) {
-    this.x = x;
-    this.y = y;
     this.spriteWidth = 200;
     this.spriteHeight = 179;
-    this.width = this.spriteWidth * 0.5;
-    this.height = this.spriteHeight * 0.5;
+    this.width = this.spriteWidth * 0.7;
+    this.height = this.spriteHeight * 0.7;
     // multiplication is faster than division CPU wise
+    this.x = x - this.width / 2;
+    this.y = y - this.height / 2;
     this.image = new Image();
     this.image.src = "./pictures/boom.png";
     this.frame = 0;
     this.timer = 0;
   }
   update() {
-    ++this.frame;
+    ++this.timer;
+    if (this.timer % 20 === 0) {
+      ++this.frame;
+    }
   }
   draw() {
     ctx.drawImage(
