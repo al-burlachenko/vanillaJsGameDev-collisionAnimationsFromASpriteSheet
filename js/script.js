@@ -62,9 +62,9 @@ class Explosion {
 window.addEventListener("click", function (e) {
   createAnimation(e);
 });
-// window.addEventListener("mousemove", function (e) {
-//   createAnimation(e);
-// });
+window.addEventListener("mousemove", function (e) {
+  createAnimation(e);
+});
 
 function createAnimation(e) {
   let positionX = e.x - canvasPosition.left;
