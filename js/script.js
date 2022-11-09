@@ -8,8 +8,8 @@ let canvasPosition = canvas.getBoundingClientRect();
 //built-in JS method that returns object
 //that provides information about the size of element
 //relative to view-port
-console.log(canvasPosition);
-console.log(canvas);
+// console.log(canvasPosition);
+// console.log(canvas);
 
 const explosions = [];
 
@@ -62,9 +62,9 @@ class Explosion {
 window.addEventListener("click", function (e) {
   createAnimation(e);
 });
-window.addEventListener("mousemove", function (e) {
-  createAnimation(e);
-});
+// window.addEventListener("mousemove", function (e) {
+//   createAnimation(e);
+// });
 
 function createAnimation(e) {
   let positionX = e.x - canvasPosition.left;
